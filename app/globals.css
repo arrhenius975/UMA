@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .animate-fadeIn {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+
+  .animate-neonGlow {
+    animation: neonGlow 2s infinite alternate;
+  }
+
+  .animate-typing {
+    animation: typing 5s steps(40, end) forwards, blinkCursor 0.7s infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s infinite alternate;
+  }
+
+  .flip-card {
+    perspective: 1000px;
+    width: 160px;
+    height: 160px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes neonGlow {
+  from {
+    text-shadow: 0 0 10px white, 0 0 20px #add8e6, 0 0 30px #e6e6fa;
+  }
+  to {
+    text-shadow: 0 0 20px white, 0 0 40px #add8e6, 0 0 60px #e6e6fa;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCursor {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px skyblue, 0 0 10px lavender;
+  }
+  50% {
+    text-shadow: 0 0 10px navy, 0 0 10px skyblue;
+  }
+  to {
+    text-shadow: 0 0 5px skyblue, 0 0 10px lavender;
+  }
+}
+
